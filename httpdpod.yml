@@ -3,7 +3,7 @@ kind: Pod
 metadata:
  name: myhttpdpod
  labels:
-   production: fbook
+   app: frontend
 spec:
  containers:
   - image: httpd
