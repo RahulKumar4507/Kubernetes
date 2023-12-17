@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: myhttpdpod
+ labels:
+   production: fbook
+spec:
+ containers:
+  - image: httpd
+    name: httpdcontainer
+    ports:
+     - containerPort: 80  
