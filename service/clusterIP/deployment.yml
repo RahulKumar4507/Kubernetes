@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: deploymentapp
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+       for: clusterIP
+  template:
+    metadata:
+      labels:
+        app: internaltest
+    spec:
+       containers:
+         - image: nginx
+           name: nginxcontainer
+
+    
+

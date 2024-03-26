@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testingpod
+  labels:
+   for: loadbalancer  
+spec:
+  containers:
+    - image: nginx
+      name: testingcontainer
+      ports:
+        - containerPort: 80
+  nodeSelector:
+    for: testing

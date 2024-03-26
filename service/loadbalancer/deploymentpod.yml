@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: deploymentpod
+  labels:
+   for: loadbalancer  
+spec:
+  containers:
+    - image: nginx
+      name: deploymentcontainer
+      ports:
+        - containerPort: 80
+  nodeSelector:
+    for: deployment
