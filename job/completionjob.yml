@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: compelation-jobsvc
+spec:
+  completions: 7
+  parallelism: 2
+  template:
+    metadata:
+      labels:
+        app: job
+    spec:
+      restartPolicy: OnFailure
+      containers:
+       - image: luksa/batch-job
+         name: jobcontainer
+
