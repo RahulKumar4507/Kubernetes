@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicasetservice
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values: 
+         - testing
+         - deployment
+  template:
+   metadata:
+    labels:
+      app: testing
+   spec:
+    containers:
+     - image: nginx
+       name: nginxcontainer
+       ports:
+         - containerPort: 80
+       livenessProbe:
+         httpGet: 
+          path: /index.html
+          port: 80
+         initialDelaySeconds: 10
+         periodSeconds: 5
+
+
+
+
+
+
