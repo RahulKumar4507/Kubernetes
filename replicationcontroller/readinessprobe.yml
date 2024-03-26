@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginxpod
+spec:
+  replicas: 3
+  template:
+   metadata:
+    labels:
+      app: frontend
+   spec:
+    containers:
+    - image: nginx
+      name: nginxcontainer
+      ports:
+       - containerPort: 80
+      readinessProbe:
+        httpGet: 
+          path: index.html
+          port: 80
+        initialDelaySeconds: 10
+        periodSeconds: 10
