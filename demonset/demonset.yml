@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+ name: daemonsetsvc
+spec:
+  selector:
+    matchLabels:
+      app: dev
+  template:  
+   metadata:
+     labels:
+       app: dev
+
+   spec:
+       containers:
+         - image: luksa/ssd-monitor
+           name: monitoringcontainer
+
+       
